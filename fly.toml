@@ -1,4 +1,4 @@
-app = "your-unique-bot-name"
+app = "sms_bomber"
 primary_region = "sin" # Singapore, or choose one close to you
 
 [build]
