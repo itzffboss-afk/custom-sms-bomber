@@ -1,17 +1,24 @@
-app = "sms_bomber"
-primary_region = "sin" # Singapore, or choose one close to you
+# fly.toml app configuration file generated for sms-bomber on 2026-11-08T10:54:59Z
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'sms-bomber'
+primary_region = 'ams'
 
 [build]
-  dockerfile = "Dockerfile"
+  dockerfile = 'Dockerfile'
+
+[deploy]
+  strategy = 'immediate'
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
 
 [[vm]]
-  memory = "512mb" # 256mb might be too small for aiogram and cause crashes[reference:5]
-
-[env]
-  # Any non-secret environment variables can go here
-
-# This section prevents the bot from stopping when idle
-[deploy]
-  strategy = "immediate"
-
-# If you use any HTTP services, configure them here, but for a polling bot, this can be minimal
+  memory = '512mb'
