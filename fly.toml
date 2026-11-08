@@ -1,0 +1,17 @@
+app = "your-unique-bot-name"
+primary_region = "sin" # Singapore, or choose one close to you
+
+[build]
+  dockerfile = "Dockerfile"
+
+[[vm]]
+  memory = "512mb" # 256mb might be too small for aiogram and cause crashes[reference:5]
+
+[env]
+  # Any non-secret environment variables can go here
+
+# This section prevents the bot from stopping when idle
+[deploy]
+  strategy = "immediate"
+
+# If you use any HTTP services, configure them here, but for a polling bot, this can be minimal
